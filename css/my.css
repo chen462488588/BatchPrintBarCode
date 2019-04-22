@@ -1,0 +1,23 @@
+<style type="text/css">
+    .a4-endwise{
+      width: 1075px;
+      height: 1567px;
+      border: 1px #000 solid;
+      overflow: hidden;
+      padding: 0;
+      word-break:break-all;
+    }
+    .a4-broadwise{
+      width: 1569px;
+      height: 1073px;
+      border: 1px #000 solid;
+      overflow: hidden;
+      padding: 0;
+      word-break:break-all;
+    }
+    .print{
+      position: fixed;
+      top: 1%;
+      right: 10%;
+    }
+  </style>

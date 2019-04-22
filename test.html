@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/JsBarcode.all.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <style type="text/css">
+        #nav{ border:3px solid #000}
+    </style>
+</head>
+<body>
+<!-- 横向排列 -->
+<div id="nav">
+    <div id="box1">1</div>
+    <div id="box2">2</div>
+    <div id="box3">3</div>
+</div>
+<!-- 纵向排列 -->
+<div id="nav2">
+    <div id="box4">4</div>
+    <div id="box5">5</div>
+    <div id="box6">6</div>
+</div>
+<a href="javascript:" onclick="preview();">打印</a>
+<script>
+    /**
+     * [打印]
+     * @return {[type]} [description]
+     */
+    function preview()
+    {
+
+        window.print();
+
+    }
+</script>
+</body>
