@@ -1,16 +1,28 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-　　<HEAD>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+　　
+<HEAD>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     　　　　<TITLE>Listing 14-4</TITLE>
-    　　</HEAD>
-　　<BODY>
-　　　　<DIV>This is the first DIV.</DIV>
-　　　　<DIV STYLE="page-break-before:always">This is the second DIV.</DIV>
-　　　　<DIV STYLE="page-break-after:always">This is the third DIV.</DIV>
-　　　　<DIV>This is the fourth DIV.</DIV>
-　　　　<DIV STYLE="page-break-before:right">This is the fifth DIV.</DIV>
-　　　　<DIV STYLE="page-break-after:right">This is the sixth DIV.</DIV>
-　　　　<DIV>This is the last DIV.</DIV>
-　　</BODY>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+
+        function addDiv() {
+            $("#div").append("&lt;div>a&lt;/div>")
+        }
+    </script>
+    　　
+</HEAD>
+　　
+<BODY>
+　　　　
+<DIV id="div">
+    <form action="">
+        name:<input type="text" name="name"/>
+    </form>
+</DIV>
+　　　<input type="button" name="aa" value="confirm" onclick="addDiv();"/>　
+　　
+</BODY>
 </html>

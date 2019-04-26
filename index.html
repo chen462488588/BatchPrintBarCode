@@ -86,13 +86,14 @@
 <a class="print" href="javascript:;" onclick="preview();">打印</a>
 <div>
 	<form>
-		起始编码：<input type="text" id="startCode" name="startCode" /><br />
-		条码个数：<input type="text" id="endCode" name="endCode" /><br />
+        前缀：  <input type="text" id="preStr" name="preStr" /><br />
+		起始值：<input type="text" id="startCode" name="startCode" /><br />
+		终止值：<input type="text" id="endCode" name="endCode" /><br />
 				<input type="button" value="确定" onclick="generatePage()" />
 	</form>
 </div>
 <!--startprint-->
-<div class="vertical-containers" id="BarCodeContainer" >
+<div  id="Container" >
 
 
 </div>
