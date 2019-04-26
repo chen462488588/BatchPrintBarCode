@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>二维码</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/JsBarcode.all.js"></script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+        var options ={
+            width: 3,//较细处条形码的宽度
+            height:100, //条形码的宽度，无高度直接设置项，由位数决定，可以通过CSS去调整，见下
+            format:"CODE128",
+            displayValue: true,//是否在条形码显示文字
+            fontSize:90,
+            fontOptions: "bold",
+            font:"monospace",
+            textAlign:"center",
+            textPosition: "top",
+            textMargin: 20,
+            backgroundColor:"",
+            lineColor:"#000", //条形码颜色
+        };
+    </script>
+</head>
+<style>
+    .print{
+        position: fixed;
+        top: 1%;
+        right: 10%;
+    }
+
+    .vertical-containers {
+        width: 794px;
+        height: 1123px;
+        text-align: center;
+        margin: 0 auto;
+        border:1px solid #ccc;
+    }
+
+    .barCodeBox{
+        width:378px;
+        height:170px;
+        border:1px solid #000;
+        float:left;
+        margin-bottom:5px;
+    }
+    .mr-10{
+        margin-right:34px;
+    }
+    .img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 100%;
+        height: 100%;
+
+    }
+
+</style>
+<body>
+<a class="print" href="javascript:;" onclick="preview();">打印</a>
+<!--startprint-->
+<div class="vertical-containers">
+    <div class="barCodeBox mr-10">
+
+        <style>
+            #barcode1{
+                width:200px;//在这里更改你想要的宽度
+            }
+        </style>
+        <div class="img">
+            <img id="barcode1"/>
+        </div>
+        <script>
+            var barcode = document.getElementById('barcode1'),
+                str = "15C7-1";
+
+            JsBarcode(barcode1, str, options);//原生
+        </script>
+    </div>
+<div class="barCodeBox">
+
+    <style>
+        #barcode2{
+            width:200px;//在这里更改你想要的宽度
+        }
+    </style>
+    <div class="img">
+        <img id="barcode2"/>
+    </div>
+    <script>
+        var barcode = document.getElementById('barcode2'),
+            str = "15C7-1-1" ;
+        JsBarcode(barcode2, str, options);//原生
+    </script>
+</div>
+<div class="barCodeBox mr-10">
+
+    <style>
+        #barcode3{
+            width:200px;//在这里更改你想要的宽度
+        }
+    </style>
+    <div class="img">
+        <img id="barcode3"/>
+    </div>
+    <script>
+        var barcode = document.getElementById('barcode3'),
+            str = "15C7-1-3";
+        JsBarcode(barcode3, str, options);//原生
+    </script>
+</div>
+
+<div class="barCodeBox">
+
+    <style>
+        #barcode4{
+            width:200px;//在这里更改你想要的宽度
+        }
+    </style>
+    <div class="img">
+        <img id="barcode4"/>
+    </div>
+    <script>
+        var barcode = document.getElementById('barcode4'),
+            str = "15C7-1-4";
+        JsBarcode(barcode4, str, options);//原生
+    </script>
+</div>
+
+<div class="barCodeBox mr-10">
+
+    <style>
+        #barcode5{
+            width:200px;//在这里更改你想要的宽度
+        }
+    </style>
+    <div class="img">
+        <img id="barcode5"/>
+    </div>
+    <script>
+        var barcode = document.getElementById('barcode5'),
+            str = "15C7-1-5";
+        JsBarcode(barcode5, str, options);//原生
+    </script>
+</div>
+
+<div class="barCodeBox">
+
+    <style>
+        #barcode6{
+            width:200px;//在这里更改你想要的宽度
+        }
+    </style>
+    <div class="img">
+        <img id="barcode6"/>
+    </div>
+    <script>
+        var barcode = document.getElementById('barcode6'),
+            str = "15C7-1-6";
+        JsBarcode(barcode6, str, options);//原生
+    </script>
+</div>
+
+
+<div class="barCodeBox mr-10">
+
+    <style>
+        #barcode7{
+            width:200px;//在这里更改你想要的宽度
+        }
+    </style>
+    <div class="img">
+        <img id="barcode7"/>
+    </div>
+    <script>
+        var barcode = document.getElementById('barcode7'),
+            str = "15C7-1-5";
+        JsBarcode(barcode7, str, options);//原生
+    </script>
+</div>
+
+<div class="barCodeBox">
+
+    <style>
+        #barcode8{
+            width:200px;//在这里更改你想要的宽度
+        }
+    </style>
+    <div class="img">
+        <img id="barcode8"/>
+    </div>
+    <script>
+        var barcode = document.getElementById('barcode8'),
+            str = "15C7-1-8";
+        JsBarcode(barcode8, str, options);//原生
+    </script>
+</div>
+
+
+</div>
+<!--endprint-->
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script>
+    /**
+     * [打印]
+     * @return {[type]} [description]
+     */
+    function preview()
+    {
+        bdhtml=window.document.body.innerHTML;//获取当前页的html代码
+        sprnstr="<!--startprint-->";//设置打印开始区域
+        eprnstr="<!--endprint-->";//设置打印结束区域
+        prnhtml=bdhtml.substring(bdhtml.indexOf(sprnstr)+18); //从开始代码向后取html
+        prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));//从结束代码向前取html
+        window.document.body.innerHTML=prnhtml;
+        window.print();
+        window.document.body.innerHTML=bdhtml;
+    }
+</script>
+
+</body>
+</html>

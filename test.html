@@ -1,38 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <script type="text/javascript" src="js/JsBarcode.all.js"></script>
-    <script type="text/javascript" src="js/jquery.js"></script>
-    <style type="text/css">
-        #nav{ border:3px solid #000}
-    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+    <script language="javascript">
+        //打印代码
+        function Print()
+        {
+            var printStr = "&lt;html>&lt;head>&lt;meta http-equiv='Content-Type' content='text/html; charset=utf-8'>&lt;/head>&lt;body >";
+            var content = "";
+
+            var str = document.getElementById('page1').innerHTML;     //获取需要打印的页面元素 ，page1元素设置样式page-break-after:always，意思是从下一行开始分割。
+            content = content + str;
+            str = document.getElementById('page2').innerHTML;     //获取需要打印的页面元素
+            content = content + str;
+
+            printStr = printStr+content+"</body></html>";
+            var pwin=window.open("Print.htm","print"); //如果是本地测试，需要先新建Print.htm，如果是在域中使用，则不需要
+            pwin.document.write(printStr);
+            pwin.document.close();                   //这句很重要，没有就无法实现
+            pwin.print();
+        }
+    </script>
 </head>
-<body>
-<!-- 横向排列 -->
-<div id="nav">
-    <div id="box1">1</div>
-    <div id="box2">2</div>
-    <div id="box3">3</div>
-</div>
-<!-- 纵向排列 -->
-<div id="nav2">
-    <div id="box4">4</div>
-    <div id="box5">5</div>
-    <div id="box6">6</div>
-</div>
-<a href="javascript:" onclick="preview();">打印</a>
-<script>
-    /**
-     * [打印]
-     * @return {[type]} [description]
-     */
-    function preview()
-    {
 
-        window.print();
-
-    }
-</script>
+<body >
+<div><input type="button" value="打印" onclick="Print()" /></div>
+<div id="page1">
+    <table width="100%"  border="0" cellpadding="0" cellspacing="0"  style="page-break-after:always" >
+        <tr><td>第一页打印内容</td></tr>
+    </table>
+</div>
+<div id="page2">
+    <table width="100%"  border="0" cellpadding="0" cellspacing="0" id="content" >
+        <tr><td>第二页打印内容</td></tr>
+    </table>
+</div>
 </body>
+</html>

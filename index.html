@@ -18,6 +18,24 @@
     <![endif]-->
     <script type="text/javascript" src="js/JsBarcode.all.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
+	 <script type="text/javascript" src="js/page.js"></script>
+    <script type="text/javascript">
+
+    var options ={
+            width: 3,//较细处条形码的宽度
+            height:200, //条形码的宽度，无高度直接设置项，由位数决定，可以通过CSS去调整，见下
+            format:"CODE128",
+            displayValue: true,//是否在条形码显示文字
+            fontSize:95,
+            fontOptions: "bold",
+            font:"monospace",
+            textAlign:"center",
+            textPosition: "top",
+            textMargin: 20,
+            backgroundColor:"",
+            lineColor:"#000", //条形码颜色
+        };
+    </script>
 </head>
 <style>
     .print{
@@ -27,22 +45,23 @@
     }
 
     .vertical-containers {
-        width: 794px;
-        height: 530px;
+        width: 578px;
+        height: 780px;
         text-align: center;
         margin: 0 auto;
         border:1px solid #ccc;
     }
 
     .barCodeBox{
-        width:378px;
-        height:170px;
+        width:192px;
+        height:390px;
         border:1px solid #000;
         float:left;
-        margin-bottom:5px;
+        margin-bottom:0px;
+		
     }
     .mr-10{
-        margin-right:34px;
+        margin-right:0px;
     }
     .img{
         display: flex;
@@ -51,187 +70,31 @@
 
         width: 100%;
         height: 100%;
-
+		
+		
     }
+
+    /*条码旋转竖排显示，设置条码宽度*/
+	img{
+		transform:rotate(270deg);
+        width:100px;//在这里更改条形码的宽度
+	}
+
 
 </style>
 <body>
 <a class="print" href="javascript:;" onclick="preview();">打印</a>
+<div>
+	<form>
+		起始编码：<input type="text" id="startCode" name="startCode" /><br />
+		条码个数：<input type="text" id="endCode" name="endCode" /><br />
+				<input type="button" value="确定" onclick="generatePage()" />
+	</form>
+</div>
 <!--startprint-->
-<div class="vertical-containers">
-    <div class="barCodeBox mr-10">
+<div class="vertical-containers" id="BarCodeContainer" >
 
-        <style>
-            #barcode1{
-                width:200px;//在这里更改你想要的宽度
-            }
-        </style>
-        <div class="img">
-            <img id="barcode1"/>
-        </div>
-        <script>
-            var barcode = document.getElementById('barcode1'),
-                str = "15C7-1-2",
-                options ={
-                    width: 3,//较细处条形码的宽度
-                    height:100, //条形码的宽度，无高度直接设置项，由位数决定，可以通过CSS去调整，见下
-                    format:"CODE128",
-                    displayValue: true,//是否在条形码显示文字
-                    fontSize:90,
-                    fontOptions: "bold",
-                    font:"monospace",
-                    textAlign:"center",
-                    textPosition: "top",
-                    textMargin: 20,
-                    backgroundColor:"",
-                    lineColor:"#000", //条形码颜色
-                };
-            JsBarcode(barcode1, str, options);//原生
-        </script>
-    </div>
-<div class="barCodeBox">
 
-    <style>
-        #barcode2{
-            width:200px;//在这里更改你想要的宽度
-        }
-    </style>
-    <div class="img">
-        <img id="barcode2"/>
-    </div>
-    <script>
-        var barcode = document.getElementById('barcode2'),
-            str = "122211",
-            options ={
-                width: 3,//较细处条形码的宽度
-                height:100, //条形码的宽度，无高度直接设置项，由位数决定，可以通过CSS去调整，见下
-                quite: 10,
-                format: "CODE128",
-                displayValue: true,//是否在条形码下方显示文字
-                font:"monospace",
-                textAlign:"center",
-                fontSize: 12,
-                backgroundColor:"",
-                lineColor:"#000"//条形码颜色
-            };
-        JsBarcode(barcode2, str, options);//原生
-    </script>
-</div>
-<div class="barCodeBox mr-10">
-
-    <style>
-        #barcode3{
-            width:200px;//在这里更改你想要的宽度
-        }
-    </style>
-    <div class="img">
-        <img id="barcode3"/>
-    </div>
-    <script>
-        var barcode = document.getElementById('barcode3'),
-            str = "3331",
-            options ={
-                width: 3,//较细处条形码的宽度
-                height:100, //条形码的宽度，无高度直接设置项，由位数决定，可以通过CSS去调整，见下
-                quite: 10,
-                format: "CODE128",
-                displayValue: true,//是否在条形码下方显示文字
-                font:"monospace",
-                textAlign:"center",
-                fontSize: 12,
-                backgroundColor:"",
-                lineColor:"#000"//条形码颜色
-            };
-        JsBarcode(barcode3, str, options);//原生
-    </script>
-</div>
-
-<div class="barCodeBox">
-
-    <style>
-        #barcode4{
-            width:200px;//在这里更改你想要的宽度
-        }
-    </style>
-    <div class="img">
-        <img id="barcode4"/>
-    </div>
-    <script>
-        var barcode = document.getElementById('barcode4'),
-            str = "14441",
-            options ={
-                width: 3,//较细处条形码的宽度
-                height:100, //条形码的宽度，无高度直接设置项，由位数决定，可以通过CSS去调整，见下
-                quite: 10,
-                format: "CODE128",
-                displayValue: true,//是否在条形码下方显示文字
-                font:"monospace",
-                textAlign:"center",
-                fontSize: 12,
-                backgroundColor:"",
-                lineColor:"#000"//条形码颜色
-            };
-        JsBarcode(barcode4, str, options);//原生
-    </script>
-</div>
-
-<div class="barCodeBox mr-10">
-
-    <style>
-        #barcode5{
-            width:200px;//在这里更改你想要的宽度
-        }
-    </style>
-    <div class="img">
-        <img id="barcode5"/>
-    </div>
-    <script>
-        var barcode = document.getElementById('barcode5'),
-            str = "15551",
-            options ={
-                width: 3,//较细处条形码的宽度
-                height:100, //条形码的宽度，无高度直接设置项，由位数决定，可以通过CSS去调整，见下
-                quite: 10,
-                format: "CODE128",
-                displayValue: true,//是否在条形码下方显示文字
-                font:"monospace",
-                textAlign:"center",
-                fontSize: 12,
-                backgroundColor:"",
-                lineColor:"#000"//条形码颜色
-            };
-        JsBarcode(barcode5, str, options);//原生
-    </script>
-</div>
-
-<div class="barCodeBox">
-
-    <style>
-        #barcode6{
-            width:200px;//在这里更改你想要的宽度
-        }
-    </style>
-    <div class="img">
-        <img id="barcode6"/>
-    </div>
-    <script>
-        var barcode = document.getElementById('barcode6'),
-            str = "1666",
-            options ={
-                width: 3,//较细处条形码的宽度
-                height:100, //条形码的宽度，无高度直接设置项，由位数决定，可以通过CSS去调整，见下
-                quite: 10,
-                format: "CODE128",
-                displayValue: true,//是否在条形码下方显示文字
-                font:"monospace",
-                textAlign:"center",
-                fontSize: 12,
-                backgroundColor:"",
-                lineColor:"#000"//条形码颜色
-            };
-        JsBarcode(barcode6, str, options);//原生
-    </script>
-</div>
 </div>
 <!--endprint-->
 
