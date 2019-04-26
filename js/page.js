@@ -1,4 +1,7 @@
 function generatePage() {
+    //隐藏form表单
+    $("form.form-horizontal").hide();
+
     var startNum = parseInt($("#startCode").val());
     var endNum = $("#endCode").val();
     var preStr = $("#preStr").val();

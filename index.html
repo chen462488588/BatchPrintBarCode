@@ -18,27 +18,27 @@
     <![endif]-->
     <script type="text/javascript" src="js/JsBarcode.all.js"></script>
     <script type="text/javascript" src="js/jquery.js"></script>
-	 <script type="text/javascript" src="js/page.js"></script>
+    <script type="text/javascript" src="js/page.js"></script>
     <script type="text/javascript">
 
-    var options ={
+        var options = {
             width: 3,//较细处条形码的宽度
-            height:200, //条形码的宽度，无高度直接设置项，由位数决定，可以通过CSS去调整，见下
-            format:"CODE128",
+            height: 200, //条形码的宽度，无高度直接设置项，由位数决定，可以通过CSS去调整，见下
+            format: "CODE128",
             displayValue: true,//是否在条形码显示文字
-            fontSize:95,
+            fontSize: 95,
             fontOptions: "bold",
-            font:"monospace",
-            textAlign:"center",
+            font: "monospace",
+            textAlign: "center",
             textPosition: "top",
             textMargin: 20,
-            backgroundColor:"",
-            lineColor:"#000", //条形码颜色
+            backgroundColor: "",
+            lineColor: "#000", //条形码颜色
         };
     </script>
 </head>
 <style>
-    .print{
+    .print {
         position: fixed;
         top: 1%;
         right: 10%;
@@ -49,51 +49,80 @@
         height: 780px;
         text-align: center;
         margin: 0 auto;
-        border:1px solid #ccc;
+        border: 1px solid #ccc;
     }
 
-    .barCodeBox{
-        width:192px;
-        height:390px;
-        border:1px solid #000;
-        float:left;
-        margin-bottom:0px;
-		
+    .barCodeBox {
+        width: 192px;
+        height: 390px;
+        border: 1px solid #000;
+        float: left;
+        margin-bottom: 0px;
+
     }
-    .mr-10{
-        margin-right:0px;
+
+    .mr-10 {
+        margin-right: 0px;
     }
-    .img{
+
+    .img {
         display: flex;
         align-items: center;
         justify-content: center;
 
         width: 100%;
         height: 100%;
-		
-		
+
+
     }
 
     /*条码旋转竖排显示，设置条码宽度*/
-	img{
-		transform:rotate(270deg);
-        width:100px;//在这里更改条形码的宽度
-	}
+    img {
+        transform: rotate(270deg);
+        width: 100px;
+    / / 在这里更改条形码的宽度
+    }
 
 
 </style>
 <body>
 <a class="print" href="javascript:;" onclick="preview();">打印</a>
 <div>
-	<form>
+    <!--<form>
         前缀：  <input type="text" id="preStr" name="preStr" /><br />
-		起始值：<input type="text" id="startCode" name="startCode" /><br />
-		终止值：<input type="text" id="endCode" name="endCode" /><br />
-				<input type="button" value="确定" onclick="generatePage()" />
-	</form>
+        起始值：<input type="text" id="startCode" name="startCode" /><br />
+        终止值：<input type="text" id="endCode" name="endCode" /><br />
+                <input type="button" value="确定" onclick="generatePage()" />
+    </form>-->
+
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">前缀：</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="preStr" placeholder="前缀">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">起始：</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="startCode" placeholder="起始">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">终止:</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" id="endCode" placeholder="终止">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-4">
+                <button type="button" class="btn btn-default" onclick="generatePage()">确定</button>
+            </div>
+        </div>
+    </form>
 </div>
 <!--startprint-->
-<div  id="Container" >
+<div id="Container">
 
 
 </div>
@@ -108,16 +137,17 @@
      * [打印]
      * @return {[type]} [description]
      */
-    function preview()
-    {
-        bdhtml=window.document.body.innerHTML;//获取当前页的html代码
-        sprnstr="<!--startprint-->";//设置打印开始区域
-        eprnstr="<!--endprint-->";//设置打印结束区域
-        prnhtml=bdhtml.substring(bdhtml.indexOf(sprnstr)+18); //从开始代码向后取html
-        prnhtml=prnhtml.substring(0,prnhtml.indexOf(eprnstr));//从结束代码向前取html
-        window.document.body.innerHTML=prnhtml;
+    function preview() {
+        bdhtml = window.document.body.innerHTML;//获取当前页的html代码
+        sprnstr = "<!--startprint-->";//设置打印开始区域
+        eprnstr = "<!--endprint-->";//设置打印结束区域
+        prnhtml = bdhtml.substring(bdhtml.indexOf(sprnstr) + 18); //从开始代码向后取html
+        prnhtml = prnhtml.substring(0, prnhtml.indexOf(eprnstr));//从结束代码向前取html
+        window.document.body.innerHTML = prnhtml;
         window.print();
-        window.document.body.innerHTML=bdhtml;
+        window.document.body.innerHTML = bdhtml;
+        //重新刷新页面，防止后面append一直追加
+        window.location.reload();
     }
 </script>
 
