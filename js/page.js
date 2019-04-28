@@ -1,10 +1,13 @@
 function generatePage() {
+    if (!checkIsNum()){
+        return;
+    } ;
     //隐藏form表单
     $("form.form-horizontal").hide();
 
-    var startNum = parseInt($("#startCode").val());
-    var endNum = $("#endCode").val();
-    var preStr = $("#preStr").val();
+    var startNum = parseInt($.trim($("#startCode").val()));
+    var endNum = parseInt($.trim($("#endCode").val()));
+    var preStr = $.trim($("#preStr").val());
 
 
     //要打印第几页
@@ -12,12 +15,12 @@ function generatePage() {
     //总页数
     var totalPage = parseInt((endNum - startNum) / 6) + 1;
     //存储条形码的编号
-    var barCodeNums = new Array();
+    var barCodeNums = [];
     //临时存储每个条形码的div包含的html
-    var barCodeDIVs = new Array();
+    var barCodeDIVs = [];
 
     //每页包含的div
-    var pageBarCodeDiv = new Array(totalPage);
+    var pageBarCodeDiv = [];
 
     //默认值设置为"" ，防止初始化数组拼接后产生undefined
     for (var i = 0; i < totalPage; i++) {
@@ -37,7 +40,6 @@ function generatePage() {
         //每六个条码都要新增一页
         if (i % 6 == 0) {
             var pageDiv = generateOnePageDiv(++pageNum);
-            alert(pageDiv);
             //把生成的页div填充到条码容器
             $("#Container").append(pageDiv);
 
@@ -77,4 +79,31 @@ function generateBarCodeDiv(divClass, imgID) {
     return barCodeDiv;
 }
 
+//校验输入的内容是否为合法数字
+function checkIsNum() {
+    var startCode = $.trim($("#startCode").val());
+    var endCode = $.trim($("#endCode").val());
+    var preCode = $.trim($("#preStr").val());
+    var regExp = new RegExp(/^\+?[1-9][0-9]*$/);
 
+
+    console.log( regExp.test(endCode));
+    console.log(regExp.test(startCode));
+    console.log(!regExp.test(startCode) || !regExp.test(endCode));
+
+
+    if (""==startCode || ""==endCode || "" == preCode){
+        alert("不能输入空值！");
+        return  false;
+    }
+    
+    if (!regExp.test(startCode) || !regExp.test(endCode)){
+        alert("请输入正确的数字！");
+        return false;
+    };
+    if (parseInt(startCode)>parseInt(endCode)){
+        alert("起始值不能大于终止值！");
+        return  false;
+    }
+    return  true;
+}
