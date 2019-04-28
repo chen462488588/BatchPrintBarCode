@@ -1,7 +1,8 @@
 function generatePage() {
-    if (!checkIsNum()){
+    if (!checkIsNum()) {
         return;
-    } ;
+    }
+    ;
     //隐藏form表单
     $("form.form-horizontal").hide();
 
@@ -87,23 +88,24 @@ function checkIsNum() {
     var regExp = new RegExp(/^\+?[1-9][0-9]*$/);
 
 
-    console.log( regExp.test(endCode));
+    console.log(regExp.test(endCode));
     console.log(regExp.test(startCode));
     console.log(!regExp.test(startCode) || !regExp.test(endCode));
 
 
-    if (""==startCode || ""==endCode || "" == preCode){
+    if ("" == startCode || "" == endCode || "" == preCode) {
         alert("不能输入空值！");
-        return  false;
+        return false;
     }
-    
-    if (!regExp.test(startCode) || !regExp.test(endCode)){
+
+    if (!regExp.test(startCode) || !regExp.test(endCode)) {
         alert("请输入正确的数字！");
         return false;
-    };
-    if (parseInt(startCode)>parseInt(endCode)){
-        alert("起始值不能大于终止值！");
-        return  false;
     }
-    return  true;
+    ;
+    if (parseInt(startCode) > parseInt(endCode)) {
+        alert("起始值不能大于终止值！");
+        return false;
+    }
+    return true;
 }
